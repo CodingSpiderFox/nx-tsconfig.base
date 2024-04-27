@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  devcontainer:
+    image: mcr.microsoft.com/devcontainers/typescript-node:0-20
+    command: sleep infinity
+    ports:
+      - '3333:3333'
+    environment:
+      - DISPLAY=${IP}:0
+    volumes:
+      - ../..:/workspaces:cached
+      - /tmp/.X11-unix:/tmp/.X11-unix \
+      - ~/.cache:/home/node/.cache
+    user: node
